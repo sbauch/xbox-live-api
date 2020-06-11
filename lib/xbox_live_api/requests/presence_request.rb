@@ -1,7 +1,6 @@
 require 'xbox_live_api/requests/base_request'
 require 'xbox_live_api/profile'
 require 'oj'
-require 'pry'
 
 class XboxLiveApi
   module Requests
