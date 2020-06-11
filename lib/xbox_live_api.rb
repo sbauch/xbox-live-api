@@ -39,6 +39,11 @@ class XboxLiveApi
     Requests::FriendRequest.new(@session_info.token).for(@session_info.user_id)
   end
 
+  # @return [XboxLiveApi::Profile] profile information for the current user
+  def get_presence_for(user_ids)
+    Requests::PresenceRequest.new(@session_info.token).for([@session_info.user_id, *user_ids].uniq)
+  end
+
   # @return [Array<XboxLiveApi::Game>] list of Xbox one games played by the current user
   def get_xbox_one_games
     Requests::XboxOneGamesRequest.new(@session_info.token).for(@session_info.user_id)

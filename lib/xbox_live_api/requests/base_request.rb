@@ -4,6 +4,7 @@ class XboxLiveApi
       class Version
         XBOX_360 = 1
         XBOX_ONE = 2
+        NEXT = 3
       end
 
       def initialize(auth_header)
@@ -14,6 +15,7 @@ class XboxLiveApi
         {
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
+            'Accept-Language' => 'en-US',
             'Authorization' => @auth_header,
             'x-xbl-contract-version' => version
         }

@@ -9,6 +9,7 @@ class XboxLiveApi
         url = "https://social.xboxlive.com/users/xuid(#{user_id})/people"
         resp = HttpSessionGateway.new.get(url, header: header_for_version(Version::XBOX_ONE)).body
         json = Oj.load(resp)
+        puts json
         ids = json['people'].collect { |x| x['xuid'] }
         ids.map { |id| ProfileRequest.new(@auth_header).for(id) }
       end
